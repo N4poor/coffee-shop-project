@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Coffee shop</title>
+  <link href="https://fonts.googleapis.com/css?family=Lato:400,300i,700%7COswald:300,500,700&amp;subset=latin-ext" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="hero">
+    <nav class="nav">
+      <div class="nav__logo">
+        <span class="nav__logo-main">EL TIGRE</span><br>
+        <span class="nav__logo-sub">VENEZUELA COFFEE BEANS</span>
+      </div>
+      <button class="nav__toggle" type="button" aria-label="Toggle navigation">
+        <i class="fas fa-bars"></i>
+      </button>
+      <ul class="nav__links">
+        <li><a href="#home">HOME</a></li>
+        <li><a href="#products">PRODUCTS</a></li>
+        <li><a href="#contact">CONTACT</a></li>
+      </ul>
+    </nav>
+    <div class="hero__content">
+      <h1 class="hero__headline">HOME OF<br><span>ORIGINAL TASTES</span></h1>
+      <p class="hero__discover">DISCOVER</p>
+      <a href="#products" class="hero__arrow" aria-label="Scroll to products" >
+        <i class="fa-regular fa-circle-down"></i>
+      </a>
+    </div>
+  </header>
+  <main id="pages">
+    <!-- HOME PAGE -->
+    <section id="home" class="page">
+      <section class="products">
+        <h2 class="products__title">PRODUCTS</h2>
+        <div class="products__underline"></div>
+        <div class="products__list">
+          <!-- Produkty będą tu ładowane dynamicznie -->
+        </div>
+      </section>
+      <section class="about">
+        <h2 class="about__title">ABOUT US</h2>
+        <div class="about__underline"></div>
+        <div class="about__content">
+          <p><em>Who are we? Just a bunch of friends with <br>a love for a good coffee and desire to create <br>something new, something original.</em></p>
+          <p><em>Our coffees reflect us – young, wild and free.<br>We are on the journey of new tastes...</em></p>
+          <p class="about__join"><strong>Join us!</strong></p>
+        </div>
+      </section>
+    </section>
+    <!-- PRODUCTS PAGE -->
+    <section id="products" class="page products">
+      <h2 class="products__title">OUR PRODUCTS</h2>
+      <div class="products__underline"></div>
+      <div class="products__list">
+        <!-- Tu również możesz dynamicznie wczytać produkty, ale inaczej sformatowane -->
+      </div>
+    </section>
+    <!-- CONTACT PAGE -->
+    <section id="contact" class="page contact">
+      <h2 class="contact__title">CONTACT</h2>
+      <div class="contact__underline"></div>
+      <form class="contact__form">
+        <label for="name" class="contact__label">NAME</label>
+        <input type="text" id="name" name="name" class="contact__input" required >
+        <label for="title" class="contact__label">TITLE</label>
+        <input type="text" id="title" name="title" class="contact__input" required >
+        <label for="message" class="contact__label">MESSAGE</label>
+        <textarea id="message" name="message" class="contact__textarea" rows="5" required></textarea>
+        <button type="submit" class="contact__button">Submit</button>
+      </form>
+    </section>
+  </main>
+  <footer class="footer">
+    <p>© 2023 EL TIGRE Inc.</p>
+  </footer>
+  <script id="template-product" type="text/x-handlebars-template">
+    <div class="product {{#if reverse}}reverse{{/if}}">
+      <div class="product__text reverse">
+        <h3>{{name}}</h3>
+        <p class="product__text-desc">{{description}}</p>
+        <p><strong>ROASTING:</strong><span> {{roasting}}/10</span></p>
+        <p><strong>INTENSITY:</strong><span> {{intensity}}/10</span></p>
+        {{#if badge}}
+          <div class="product__badge">1<br><small>{{badge}}</small></div>
+        {{/if}}
+      </div>
+      <img src="{{image}}" alt="{{name}}" class="product__image">
+    </div>
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.min.js"></script>
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>

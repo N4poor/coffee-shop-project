@@ -1,0 +1,22 @@
+<script id="template-product" type="text/x-handlebars-template">
+    <div class="product {{#if reverse}}reverse{{/if}}">
+      {{#if reverse}}
+        <img src="{{image}}" alt="{{name}}" class="product__image">
+      {{/if}}
+  
+      <div class="product__text {{#if reverse}}product__text-reverse{{/if}}">
+        <h3>{{name}}</h3>
+        <p class="product__text-desc">{{description}}</p>
+        <p><strong>ROASTING:</strong><span> {{roasting}}/10</span></p>
+        <p><strong>INTENSITY:</strong><span> {{intensity}}/10</span></p>
+        {{#if badge}}
+          <div class="product__badge">1<br><small>{{badge}}</small></div>
+        {{/if}}
+      </div>
+  
+      {{#unless reverse}}
+        <img src="{{image}}" alt="{{name}}" class="product__image">
+      {{/unless}}
+    </div>
+  </script>
+  
